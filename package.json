@@ -1,7 +1,14 @@
 {
   "name": "node-typescript-express-postgresql-db-migrate",
   "version": "1.0.0",
-  "description": "Simple example of how to run migrations",
+  "description": "Simple example of how to run database migrations",
+  "keywords": [
+    "postgresql db-migrate",
+    "database migration postgresql",
+    "schema migration postgresql",
+    "migration postgresql",
+    "node postgresql db-migrate"
+  ],
   "scripts": {
     "start": "node dist/server",
     "build": "tsc",
@@ -10,14 +17,13 @@
     "migrate:down": "db-migrate --env dev down",
     "prettier": "prettier --config .prettierrc 'src/**/*.ts' --write",
     "lint": "eslint src --ext .ts",
-    "test": "db-migrate db:create test_db_test && db-migrate --env test up && ENV=test jasmine-ts && db-migrate db:drop test_db_test",
+    "test": "npm run test:delete:db && db-migrate db:create test_db_test && db-migrate --env test up && ENV=test jasmine-ts && db-migrate db:drop test_db_test",
     "test:delete:db": "db-migrate db:drop test_db_test"
   },
   "author": "Al Diaz",
   "license": "MIT",
   "main": "server.ts",
   "dependencies": {
-    "body-parser": "^1.19.0",
     "db-migrate": "^0.11.12",
     "db-migrate-pg": "^1.2.2",
     "dotenv": "^10.0.0",
