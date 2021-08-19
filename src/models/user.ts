@@ -11,7 +11,7 @@ export type User = {
 export type CreateUser = User & {
   password: string;
   username: string;
-}
+};
 
 // this class is going to be the representation of the database that why we include the word store
 export class UserStore {
@@ -51,9 +51,10 @@ export class UserStore {
       // open connection to database
       const conn = await client.connect();
 
-      const hash = 'this_should_be_a_hashed_password'
+      const hash = 'this_should_be_a_hashed_password';
 
-      const sql = 'INSERT INTO users (name, age, username, password_digest) VALUES ($1, $2, $3, $4) RETURNING *';
+      const sql =
+        'INSERT INTO users (name, age, username, password_digest) VALUES ($1, $2, $3, $4) RETURNING *';
       const result = await conn.query(sql, [u.name, u.age, u.username, hash]);
 
       // close or release database connection

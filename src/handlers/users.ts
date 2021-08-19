@@ -27,11 +27,11 @@ const create = async (req: Request, res: Response): Promise<void> => {
     };
 
     if (!user.username) {
-      throw new Error( `Username is required`);
+      throw new Error(`Username is required`);
     }
 
     if (!user.password) {
-      throw new Error( `Password is required`);
+      throw new Error(`Password is required`);
     }
 
     const createUser = await store.create(user);
