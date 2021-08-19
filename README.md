@@ -113,8 +113,6 @@ npm start
 ## Run unit tests
 
 ```shell
-npm run build 
-
 npm run test
 ```
 

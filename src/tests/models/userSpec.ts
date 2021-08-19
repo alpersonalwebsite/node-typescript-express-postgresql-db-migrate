@@ -1,4 +1,4 @@
-import { User, UserStore } from '../user';
+import { User, UserStore } from '../../models/user';
 
 const store = new UserStore();
 
