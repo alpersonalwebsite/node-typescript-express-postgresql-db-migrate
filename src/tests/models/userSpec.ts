@@ -1,4 +1,4 @@
-import { User, UserStore } from '../../models/user';
+import { UserStore } from '../../models/user';
 
 const store = new UserStore();
 
@@ -60,7 +60,7 @@ describe('User Model', () => {
   });
 
   it('remove method should remove the user', async () => {
-    const _removeUser = await store.remove('1');
+    await store.remove('1');
     const result = await store.getAll();
     expect(result).toEqual([]);
   });

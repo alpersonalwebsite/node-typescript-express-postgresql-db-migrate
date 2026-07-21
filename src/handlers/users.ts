@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-import { User, CreateUser, UserStore } from '../models/user';
+import { CreateUser, UserStore } from '../models/user';
 
 const store = new UserStore();
 
