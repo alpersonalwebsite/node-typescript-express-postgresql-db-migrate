@@ -37,8 +37,9 @@ const create = async (req: Request, res: Response): Promise<void> => {
     const createUser = await store.create(user);
     res.json(createUser);
   } catch (err) {
-    res.status(400);
-    res.json({ message: err.message });
+    res.status(400).json({
+      message: err instanceof Error ? err.message : 'Bad request'
+    });
   }
 };
 
@@ -47,9 +48,9 @@ const remove = async (req: Request, res: Response): Promise<void> => {
     const deleteUser = await store.remove(req.params.id);
     res.json(deleteUser);
   } catch (err) {
-    console.log(err.message);
-    res.status(400);
-    res.json({ message: err.message });
+    const message = err instanceof Error ? err.message : 'Bad request';
+    console.error(message);
+    res.status(400).json({ message });
   }
 };
 
