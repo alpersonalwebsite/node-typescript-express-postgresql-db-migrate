@@ -1,9 +1,11 @@
 import express, { Request, Response } from 'express';
+import helmet from 'helmet';
 import userRoutes from './handlers/users';
 
 const app: express.Application = express();
 const PORT = process.env.PORT || 3000;
 
+app.use(helmet());
 app.use(express.json());
 
 userRoutes(app);
