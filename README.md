@@ -19,6 +19,19 @@ For more information about migrations [visit Prisma](https://www.prisma.io/datag
 npm install
 ```
 
+## Environment variables
+
+The server reads its PostgreSQL connection from a `.env` file (loaded by
+dotenv). Create one from the sample:
+
+```shell
+cp .sample-env .env
+```
+
+Set `POSTGRES_USER` / `POSTGRES_PASSWORD` (and the host/db names if you change
+them). Migrations read `database.json` separately, so keep the database names
+consistent between the two files.
+
 ## DB
 
 ### Create databases 
